@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'pip install flask'
+                bat 'pip install -r requirements.txt'
             }
         }
         stage('test') {
             steps {
-                sh 'python app.py'
+                bat 'flask run'
             }
         }
     }
