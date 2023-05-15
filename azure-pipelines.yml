@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: my-laptop
+# pool: my-laptop
 
 steps:
 - task: DockerCompose@0
