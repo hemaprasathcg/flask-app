@@ -11,8 +11,6 @@ services:
       PGDATA: /var/lib/postgresql/data
     ports:
       - "5432:5432"
-    volumes:
-      - db-data:/var/lib/postgresql/data
   pgadmin:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
@@ -22,8 +20,6 @@ services:
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
       - "5050:80"
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin
   web:
     build: .
     ports:
@@ -34,6 +30,3 @@ services:
       FLASK_DEBUG: "true"
   redis:
     image: "redis:alpine"
-  volumes:
-    db-data:
-    pgadmin-data:
