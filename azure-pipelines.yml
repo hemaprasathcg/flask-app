@@ -23,7 +23,7 @@ steps:
   displayName: 'Start services'
 
 - script: |
-    docker-compose -f docker-compose.yml run --rm my-service pytest
+    docker-compose -f docker-compose.yml run --rm web flask run
   displayName: 'Run tests'
 
 - script: |
