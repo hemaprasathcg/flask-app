@@ -22,3 +22,29 @@ jobs:
       deploy:   
           steps:
           - script: echo "Hello world"
+            displayName: 'Init test'
+          - task: DockerCompose@0
+            displayName: 'Build services'
+            inputs:
+              containerregistrytype: 'Container Registry'
+              dockerComposeFile: 'docker-compose.yml'
+              action: 'Build services'
+              # imageName: 'my-image'
+              includeLatestTag: true
+
+          - script: |
+              docker-compose -f docker-compose.yml up -d
+            displayName: 'Start services'
+
+          - task: CmdLine@2
+            displayName: 'Show Public IP'
+            inputs:
+              script: |
+                wget -qO- http://ipecho.net/plain | xargs echo
+          - script: |
+              docker-compose -f docker-compose.yml run --rm web flask run
+            displayName: 'Run tests'
+
+          - script: |
+              docker-compose -f docker-compose.yml down
+            displayName: 'Stop services'
