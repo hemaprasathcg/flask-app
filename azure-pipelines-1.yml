@@ -21,8 +21,6 @@ jobs:
     runOnce:
       deploy:   
           steps:
-          - script: echo "Hello world"
-            displayName: 'Init test'
           - task: DockerCompose@0
             displayName: 'Build services'
             inputs:
