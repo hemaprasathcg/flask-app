@@ -15,6 +15,7 @@ jobs:
   environment: 
     name: prestovmsiisolutions
     resourceType: virtualMachine
+    resourceName: prestovmsiisolutions
     tags: web,vm,linux # only deploy to virtual machines with both windows and prod tags
   strategy:
     runOnce:
