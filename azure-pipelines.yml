@@ -22,6 +22,10 @@ steps:
     docker-compose -f docker-compose.yml up -d
   displayName: 'Start services'
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      wget -qO- http://ipecho.net/plain | xargs echo
 - script: |
     docker-compose -f docker-compose.yml run --rm web flask run
   displayName: 'Run tests'
