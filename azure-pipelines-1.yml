@@ -15,7 +15,7 @@ jobs:
   environment: 
     name: test-build
     resourceType: virtualMachine
-    resourceName: prestovmsiisolutions
+    resourceName: prestovmsiisolutions22
     tags: web,vm,linux # only deploy to virtual machines with both windows and prod tags
   strategy:
     runOnce:
