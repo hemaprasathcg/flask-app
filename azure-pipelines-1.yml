@@ -13,7 +13,7 @@ jobs:
 - deployment: VMDeploy
   displayName: Deploy to VM
   environment: 
-    name: prestovmsiisolutions
+    name: test-build
     resourceType: virtualMachine
     resourceName: prestovmsiisolutions
     tags: web,vm,linux # only deploy to virtual machines with both windows and prod tags
