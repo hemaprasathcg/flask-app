@@ -28,7 +28,7 @@ steps:
       wget -qO- http://ipecho.net/plain | xargs echo
 - script: |
     docker-compose -f docker-compose.yml run --rm web flask run
-  displayName: 'Run tests'
+  displayName: 'Run test'
 
 - script: |
     docker-compose -f docker-compose.yml down
